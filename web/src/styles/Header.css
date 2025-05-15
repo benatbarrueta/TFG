@@ -1,0 +1,132 @@
+:root {
+  --header-height: 64px; /* Valor inicial que será actualizado dinámicamente */
+}
+
+/* Estilos generales del header */
+.header {
+  background-color: white;
+  width: 100%;
+  padding: 12px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+}
+
+/* Contenedor izquierdo: Servicios + Logo */
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 20px; /* Espaciado entre elementos */
+}
+
+/* Tamaño del logo */
+.logo-img {
+  height: 40px; /* Tamaño más compacto */
+  width: auto;
+}
+
+/* Dropdowns */
+.dropdown {
+  position: relative;
+}
+
+.dropdown-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 12px;
+  background: transparent;
+  border: none;
+  color: gray;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.dropdown-btn:hover {
+  color: #047857;
+}
+
+.dropdown-icon {
+  width: 16px;
+  height: 16px;
+}
+
+/* Estilos del menú desplegable */
+.dropdown-menu {
+  position: absolute;
+  left: 0;
+  margin-top: 8px;
+  width: 180px;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  z-index: 10;
+  opacity: 0;
+  transform: translateY(-10px);
+  transition: opacity 0.2s ease-out, transform 0.2s ease-out;
+  pointer-events: none;
+  visibility: hidden;
+}
+
+/* Mostrar el menú cuando esté abierto */
+.dropdown .dropdown-menu {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+  visibility: visible;
+}
+
+.dropdown-item {
+  display: block;
+  padding: 10px 16px;
+  text-decoration: none;
+  color: black;
+  font-size: 0.95rem;
+}
+
+.dropdown-item:hover {
+  background-color: #f0f0f0;
+}
+
+/* Botón de sesión */
+.session-buttons {
+  display: flex;
+  align-items: center;
+}
+
+.session-link {
+  text-decoration: none;
+  color: gray;
+  font-size: 1rem;
+}
+
+.acceder-button {
+  cursor: pointer;
+}
+
+.session-link:hover {
+  color: #047857;
+}
+
+.nav-links {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+.nav-link {
+  text-decoration: none;
+  color: inherit;
+  padding: 8px 12px;
+  border-radius: 4px;
+}
+
+.nav-link:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+}

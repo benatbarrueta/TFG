@@ -1,0 +1,67 @@
+version: "3.8"
+
+services:
+    ecotrackdb:
+        build:
+            context: ./ecotrackdb
+            dockerfile: Dockerfile
+        container_name: db-service
+        ports:
+            - "6000:6000"
+        volumes:
+            - ./ecotrackdb/data:/app/data  # Volumen compartido
+        environment:
+            - DB_PATH=/app/data/ecotrack.db  # Ruta de la base de datos SQLite
+        networks:
+            - web
+
+    chat-service:
+        build:
+            context: ./microservicioChatty # Ubicación del Dockerfile
+            dockerfile: Dockerfile
+        container_name: chat-service
+        ports:
+            - "8000:8000"
+        volumes:
+            - ./microservicioChatty:/app
+            - ./ecotrackdb/data:/app/data  # Volumen compartido con ecotrackdb
+        environment:
+            - DB_PATH=/app/data/ecotrack.db  # Asegurar que usa la misma ruta
+        depends_on:
+            - ecotrackdb
+        networks:
+            - web
+
+    auth-service:
+        build:
+            context: ./microservicioAuth
+            dockerfile: Dockerfile
+        container_name: auth-service
+        ports:
+            - "8001:8001"
+        volumes:
+            - ./microservicioAuth:/app
+            - ./ecotrackdb/data:/app/data  # Volumen compartido con ecotrackdb
+        environment:
+            - DB_PATH=/app/data/ecotrack.db  # Asegurar que usa la misma ruta
+        depends_on:
+            - ecotrackdb
+        networks:
+            - web
+
+    web:
+        build:
+            context: ./web
+            dockerfile: Dockerfile
+        container_name: web-service
+        ports:
+            - "8080:80"
+        depends_on:
+            - auth-service
+            - chat-service
+        networks:
+            - web
+
+networks:
+    web:
+        external: true

@@ -1,0 +1,198 @@
+.body {
+    width: 100%;
+    height: calc(100vh - var(--header-height));
+    position: relative;
+    margin-top: var(--header-height);
+    padding: 0;
+    overflow: hidden;
+}
+
+@media (max-width: 768px) {
+    .body {
+        position: static;
+        height: auto;
+        min-height: calc(100vh - var(--header-height));
+    }
+
+    #map {
+        position: relative;
+        height: calc(100vh - var(--header-height));
+    }
+}
+
+@media (min-width: 769px) {
+    .body {
+        overflow: hidden;
+    }
+}
+
+#map {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.map-controls {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.map-controls button {
+    background-color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 10px 20px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    cursor: pointer;
+    font-size: 14px;
+    transition: all 0.2s ease;
+}
+
+.map-controls button:hover {
+    background-color: #f0f0f0;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.waypoint-marker {
+    background: none;
+    border: none;
+}
+
+.waypoint-icon {
+    width: 30px;
+    height: 30px;
+    background-color: #007AFF;
+    border-radius: 50%;
+    border: 3px solid white;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    position: relative;
+}
+
+.waypoint-icon::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 12px;
+    height: 12px;
+    background-color: white;
+    border-radius: 50%;
+}
+
+.waypoint-popup {
+    padding: 10px;
+}
+
+.waypoint-popup h3 {
+    margin: 0 0 10px 0;
+    color: #333;
+}
+
+.waypoint-popup p {
+    margin: 5px 0;
+    color: #666;
+    font-size: 14px;
+}
+
+.waypoint-popup button {
+    background-color: #ff3b30;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    padding: 8px 16px;
+    margin-top: 10px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.2s ease;
+}
+
+.waypoint-popup button:hover {
+    background-color: #ff1a1a;
+}
+
+/* Estilos para el popup de Leaflet */
+.leaflet-popup-content-wrapper {
+    border-radius: 12px;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.2);
+}
+
+.leaflet-popup-tip {
+    background: white;
+}
+
+.photo-marker {
+    background: none;
+    border: none;
+}
+
+.photo-icon {
+    width: 30px;
+    height: 30px;
+    background-color: #e74c3c;
+    border-radius: 50%;
+    border: 3px solid white;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.photo-icon::after {
+    content: '';
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    background-image: url('../styles/images/camara.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.photo-popup {
+    padding: 10px;
+    max-width: 250px;
+}
+
+.photo-popup h3 {
+    margin: 0 0 10px 0;
+    color: #333;
+    font-size: 16px;
+}
+
+.photo-popup img {
+    width: 100%;
+    border-radius: 8px;
+    margin: 10px 0;
+}
+
+.photo-popup p {
+    margin: 5px 0;
+    color: #666;
+    font-size: 14px;
+}
+
+.consultar-foto-btn {
+    background-color: #6ca64d;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 8px 16px;
+    margin-top: 10px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.consultar-foto-btn:hover {
+    background-color: #5b8f41;
+}

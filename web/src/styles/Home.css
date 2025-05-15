@@ -1,0 +1,274 @@
+:root {
+    --primary-green: #6ca64d;
+    --dark-green: #4b7c32;
+    --light-green: #85c678;
+    --white: #ffffff;
+    --shadow: rgba(0, 0, 0, 0.15);
+}
+
+.home-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+    min-height: calc(100vh - var(--header-height));
+    padding: 30px;
+    background: linear-gradient(180deg, var(--primary-green), var(--light-green));
+    margin-top: var(--header-height);
+}
+
+.home-container h1 {
+    color: white;
+    margin-bottom: 20px;
+    font-size: 2rem;
+}
+
+#preview-map {
+    width: 100%;
+    max-width: 1200px;
+    height: 300px;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-bottom: 30px;
+}
+
+.map-error {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.9);
+    color: #ff4444;
+    font-weight: bold;
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    width: 100%;
+    max-width: 1200px;
+    padding: 20px;
+}
+
+.service-card {
+    background-color: white;
+    border-radius: 15px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    color: #333;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.service-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.service-card img {
+    width: 60px;
+    height: 60px;
+    margin-bottom: 15px;
+    transition: transform 0.3s ease;
+}
+
+.service-card:hover img {
+    transform: scale(1.1);
+}
+
+.service-card p {
+    font-size: 1.1rem;
+    font-weight: 500;
+    margin: 0;
+}
+
+.home-title {
+    font-size: 2.5rem;
+    color: white;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.home-subtitle {
+    font-size: 1.2rem;
+    color: white;
+    margin-bottom: 30px;
+}
+
+.home-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 20px;
+    max-width: 900px;
+    width: 100%;
+    padding: 15px;
+}
+
+.home-card {
+    background-color: var(--white);
+    border-radius: 15px;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    box-shadow: 0px 4px 8px var(--shadow);
+    transition: all 0.3s ease-in-out;
+    cursor: pointer;
+}
+
+.home-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.25);
+    background-color: var(--dark-green);
+    color: white;
+}
+
+.home-image {
+    width: 50px;
+    height: auto;
+    margin-bottom: 10px;
+    transition: transform 0.3s ease;
+}
+
+.home-card:hover .home-image {
+    transform: scale(1.1);
+}
+
+.home-card p {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #333;
+    text-decoration: none;
+    margin: 0;
+}
+
+.home-card:hover p {
+    color: white;
+}
+
+.home-card a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.home-map-preview {
+    max-width: 900px;
+    width: 100%;
+    margin: 20px auto 0;
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+/* Estilos para los marcadores de fotos */
+.photo-marker {
+    background: none;
+    border: none;
+}
+
+.photo-icon {
+    width: 30px;
+    height: 30px;
+    background-color: var(--primary-green);
+    border: 2px solid white;
+    border-radius: 50%;
+    position: relative;
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.photo-icon::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 14px;
+    height: 14px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3E%3Cpath d='M12 8c-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4-1.79-4-4-4zm0 6c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm8-9h-3.17l-1.86-2H8.97L7.17 5H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 14H4V7h4.05l1.83-2h4.24l1.83 2H20v12z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+}
+
+.consultar-foto-btn {
+    background-color: #6ca64d;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 8px 16px;
+    margin-top: 10px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+    width: 100%;
+}
+
+.consultar-foto-btn:hover {
+    background-color: #5b8f41;
+}
+
+.photo-popup {
+    padding: 10px;
+    max-width: 250px;
+    text-align: center;
+}
+
+.photo-popup h3 {
+    margin: 0 0 10px 0;
+    color: #333;
+    font-size: 16px;
+}
+
+.photo-popup img {
+    width: 100%;
+    border-radius: 8px;
+    margin: 10px 0;
+    object-fit: cover;
+}
+
+.photo-popup p {
+    margin: 5px 0;
+    font-size: 0.9em;
+    color: #666;
+}
+
+/* Estilos para el marcador de ubicación */
+.location-marker {
+    background: none;
+    border: none;
+}
+
+.location-icon {
+    width: 30px;
+    height: 30px;
+    background-color: #3498db;
+    border: 3px solid white;
+    border-radius: 50%;
+    position: relative;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.location-icon::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 12px;
+    height: 12px;
+    background-color: white;
+    border-radius: 50%;
+}
+
+/* Ajustes para el mapa en la página de inicio */
+#preview-map .leaflet-control-attribution {
+    font-size: 10px;
+}

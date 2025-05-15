@@ -1,0 +1,87 @@
+.auth-error-container {
+    min-height: calc(100vh - 64px);
+    margin-top: 64px;
+    background-color: #6ca64d;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.auth-error-card {
+    background-color: white;
+    border-radius: 15px;
+    padding: 40px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+    width: 90%;
+    max-width: 500px;
+    text-align: center;
+}
+
+.auth-error-icon {
+    color: #6ca64d;
+    margin-bottom: 20px;
+}
+
+.auth-error-title {
+    color: #333;
+    font-size: 2rem;
+    margin: 0 0 15px 0;
+}
+
+.auth-error-message {
+    color: #666;
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+}
+
+.auth-error-message strong {
+    color: #333;
+}
+
+.auth-error-contact {
+    background-color: #f8f9fa;
+    padding: 20px;
+    border-radius: 10px;
+    margin-top: 20px;
+}
+
+.auth-error-contact p {
+    color: #666;
+    margin: 0 0 15px 0;
+}
+
+.auth-error-email {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    color: #6ca64d;
+}
+
+.auth-error-email a {
+    color: #6ca64d;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.auth-error-email a:hover {
+    color: #5b8f41;
+    text-decoration: underline;
+}
+
+@media (max-width: 480px) {
+    .auth-error-card {
+        padding: 30px 20px;
+    }
+
+    .auth-error-title {
+        font-size: 1.5rem;
+    }
+
+    .auth-error-message {
+        font-size: 1rem;
+    }
+}

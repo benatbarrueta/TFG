@@ -1,0 +1,8 @@
+**/.env
+**/*.env
+# ... otros archivos .env
+
+__pycache__/
+*.log
+.DS_Store
+node_modules/

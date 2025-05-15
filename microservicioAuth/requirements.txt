@@ -1,0 +1,12 @@
+fastapi==0.115.0
+pydantic==2.9.2
+uvicorn==0.32.0
+mysql-connector-python==8.1.0
+SQLAlchemy==1.4.15
+pymysql==1.0.2
+PyJWT==2.6.0
+python-dotenv==0.20.0
+python-multipart==0.0.5
+oauthlib==3.2.2
+requests-oauthlib==2.0.0
+cryptography==44.0.0

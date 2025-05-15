@@ -1,0 +1,182 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+.description-wrapper {
+    margin-top: var(--header-height);
+}
+
+.inicio-container {
+    background: #f4f4f9;
+    color: #333;
+    padding: 2rem;
+    text-align: center;
+    background-color: #6ca64d;
+}
+
+.inicio-titulo {
+    background-image: url('images/bosque.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    height: 50vh;
+    color: white;
+}
+
+.inicio-titulo h1 {
+    font-size: 3rem;
+    margin-bottom: 2vh;
+    padding-top: 15vh;
+}
+
+.inicio-titulo p {
+    font-size: 1.1rem;
+    margin-bottom: 4vh;
+}
+
+.inicio-button {
+    text-decoration: none;
+    color: white;
+    background: #0d7510;
+    font-size: 1rem;
+    padding: 10px;
+    border-radius: 10px;
+    border: none;
+}
+
+.inicio-button:hover {
+    background-color: #4caf50;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+}
+
+.inicio-header {
+    background: #4caf50;
+    color: white;
+    margin: 0 20vh;
+    padding: 2rem 1rem;
+    border-radius: 8px;
+}
+
+.inicio-imagen {
+    width: 40%;
+    height: 40%;
+}
+
+.inicio-imagen-contenido {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.inicio-header h1 {
+    font-size: 3rem;
+    margin-bottom: 0.5rem;
+}
+
+.inicio-header p {
+    font-size: 1.5rem;
+}
+
+.inicio-seccion {
+    margin: 2rem 20vh;
+    padding: 2rem;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.inicio-seccion h2 {
+    color: #0d7510;
+    margin-bottom: 1rem;
+}
+
+.inicio-seccion p {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    text-align: justify;
+    padding: 0 10px 0 10px;
+}
+
+
+.inicio-footer p {
+    font-size: 1rem;
+}
+
+.inicio-seccion {
+    padding: 20px;
+    background-color: #f8fff8;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.imagenes {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 2vh;
+    flex-wrap: wrap;
+}
+
+.imagen-texto {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    width: 12%;
+    margin: 10px;
+}
+
+.imagen-texto img {
+    width: 10vh;
+    height: auto;
+}
+
+.imagen-texto p {
+    margin-top: 1vh;
+    font-size: 0.8rem;
+    text-align: center;
+}
+
+@media (max-width: 900px) {
+    .inicio-container {
+        padding: 1rem;
+    }
+
+    .inicio-titulo {
+        height: 30vh;
+    }
+
+    .inicio-titulo h1 {
+        font-size: 2.5rem;
+        padding-top: 10vh;
+    }
+
+    .inicio-titulo p {
+        font-size: 1rem;
+    }
+
+    .inicio-button {
+        display: none;
+    }
+
+    .inicio-seccion {
+        margin: 1rem 5vh;
+        padding: 1rem;
+    }
+
+    .imagenes {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+    }
+
+    .imagen-texto {
+        width: 100%;
+        margin: 0;
+    }
+}
