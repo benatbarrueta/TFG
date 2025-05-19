@@ -17,13 +17,13 @@ services:
 
     chat-service:
         build:
-            context: ./microservicioChatty # Ubicación del Dockerfile
+            context: ./microservicioConsultas # Ubicación del Dockerfile
             dockerfile: Dockerfile
         container_name: chat-service
         ports:
             - "8000:8000"
         volumes:
-            - ./microservicioChatty:/app
+            - ./microservicioConsultas:/app
             - ./ecotrackdb/data:/app/data  # Volumen compartido con ecotrackdb
         environment:
             - DB_PATH=/app/data/ecotrack.db  # Asegurar que usa la misma ruta

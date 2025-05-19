@@ -18,7 +18,7 @@ const GoogleCallback = () => {
             }
             
             try {
-                const response = await axios.get(`https://ecotrack.es/auth/google/callback?code=${code}`);
+                const response = await axios.get(`http://localhost:8001/auth/google/callback?code=${code}`);
                 console.log("Respuesta completa del backend:", response.data);
 
                 if (response.status === 200 && response.data.access_token) {

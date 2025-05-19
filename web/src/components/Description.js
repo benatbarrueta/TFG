@@ -14,7 +14,7 @@ const Description = () => {
     const loginWithGoogle = async () => {
         try {
             console.log('Iniciando sesión con Google...');
-            const response = await axios.get('https://ecotrack.es/auth/google');
+            const response = await axios.get('http://localhost:8001/auth/google');
             if (response.status === 200 && response.data.authorization_url) {
                 console.log('Redirigiendo a:', response.data.authorization_url);
                 window.location.href = response.data.authorization_url;

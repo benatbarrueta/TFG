@@ -20,7 +20,7 @@ function App() {
     try {
       if (authToken) {
         // Llamar al backend para invalidar el token
-        await fetch("https://ecotrack.es/auth/logout", {
+        await fetch("http://localhost:8001/auth/logout", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",

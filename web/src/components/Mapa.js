@@ -90,7 +90,7 @@ const MapaQGIS = () => {
 
         try {
             console.log("Email del usuario:", userEmail);
-            const response = await axios.get('https://ecotrack.es/nature/getPhotosByUsername/' + userEmail);
+            const response = await axios.get('http://localhost:8000/nature/getPhotosByUsername/' + userEmail);
             const photos = Array.isArray(response.data.result) ? response.data.result : [];
             console.log("Fotos recibidas:", photos);
 

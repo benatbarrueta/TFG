@@ -91,7 +91,7 @@ const Home = () => {
     if (!mapRef.current || !userEmail) return;
 
     try {
-      const response = await axios.get('https://ecotrack.es/nature/getPhotosByUsername/' + userEmail);
+      const response = await axios.get('http://localhost:8000/nature/getPhotosByUsername/' + userEmail);
       const photos = Array.isArray(response.data.result) ? response.data.result : [];
 
       // Limpiar marcadores anteriores de fotos

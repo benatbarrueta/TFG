@@ -5,6 +5,7 @@ import './../styles/Finder.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPaperclip } from '@fortawesome/free-solid-svg-icons';
 import MapModal from './MapModal';
+import Cookies from 'js-cookie';
 
 const Finder = () => {
     const location = useLocation();
@@ -133,7 +134,7 @@ const Finder = () => {
     const apiCall = async (image, link) => {
         try {
             console.log(link);
-            const response = await axios.post(`https://ecotrack.es/nature/${link}`,
+            const response = await axios.post(`http://localhost:8000/nature/${link}`,
                 {
                     image_path: image
                 },
@@ -214,9 +215,12 @@ const Finder = () => {
                 setLongitude(position.coords.longitude);
                 await sendDataToServer(position.coords.latitude, position.coords.longitude);
                 setImageSaved(true);
+                setErrorMessage('');
             } catch (error) {
                 console.error('Error al obtener la ubicación:', error);
                 setIsMapModalOpen(true);
+                setImageSaved(false);
+                setErrorMessage('No se ha podido guardar la imagen.');
             }
             return;
         }
@@ -224,8 +228,10 @@ const Finder = () => {
         try {
             await sendDataToServer(latitude, longitude);
             setImageSaved(true);
+            setErrorMessage('');
         } catch (error) {
             console.error('Error al guardar los datos:', error);
+            setImageSaved(false);
             setErrorMessage('Error al guardar los datos. Por favor, intenta de nuevo.');
         }
     };
@@ -233,26 +239,27 @@ const Finder = () => {
     // Función separada para enviar los datos al servidor
     const sendDataToServer = async (lat, lng) => {
         try {
+            const userEmail = Cookies.get('ecotrack_user_email');
             console.log("Datos a enviar:", {
                 base64: base64Image,
                 latitude: lat,
                 longitude: lng,
                 imageName: apiResult[0].result,
-                user: localStorage.getItem('user')
+                user: userEmail
             });
 
-            const response = await axios.post('https://ecotrack.es/nature/saveInDB', {
+            const response = await axios.post('http://localhost:8000/nature/saveInDB', {
                 base64: base64Image,
                 latitude: lat,
                 longitude: lng,
                 imageName: apiResult[0].result,
-                user: localStorage.getItem('user')
+                user: userEmail
             });
 
             console.log("Datos guardados en la base de datos:", response);
         } catch (error) {
             console.error('Error al guardar los datos en la base de datos:', error);
-            alert('Error al guardar la imagen. Por favor, intenta de nuevo.');
+            setErrorMessage('× Error al guardar la imagen. No se ha guardado la imagen.');
         }
     };
 
@@ -290,7 +297,7 @@ const Finder = () => {
             setChatHistory(updatedHistory);
             scrollToBottom();
 
-            const response = await axios.post('https://ecotrack.es/nature/getAnswer', {
+            const response = await axios.post('http://localhost:8000/nature/getAnswer', {
                 question: questionText,
                 context: currentContext,
                 chat_history: updatedHistory
@@ -338,7 +345,6 @@ const Finder = () => {
             setIsMapModalOpen(false);
         } catch (error) {
             console.error('Error al guardar con ubicación personalizada:', error);
-            alert('Error al guardar la imagen. Por favor, intenta de nuevo.');
         }
     };
 
@@ -397,9 +403,13 @@ const Finder = () => {
                         </button>
                     </div>
                 ) : (
-                    imageSaved ? (
+                    imageSaved && !errorMessage ? (
                         <div className="imagen-guardada">
                             <p>✓ Imagen guardada correctamente</p>
+                        </div>
+                    ) : errorMessage ? (
+                        <div className="imagen-guardada" style={{ backgroundColor: '#ffe5e5', border: '1px solid #ff4d4f' }}>
+                            <p style={{ color: '#ff4d4f' }}>✗ {errorMessage}</p>
                         </div>
                     ) : (
                         <div className="botones-guardar">
