@@ -60,8 +60,11 @@ TOKEN_URL = os.getenv("TOKEN_URL")
 SECRET_KEY = os.getenv("SECRET_KEY")
 ALLOWED_USERS = [
     "benat.barrueta@opendeusto.es",
+    "benatbarrueta25@gmail.com",
     "a.pikatza@deusto.es",
-    "gonzalez.asier@deusto.es"
+    "gonzalez.asier@deusto.es",
+    "veronica.canivell@deusto.es",
+    "anabelen.lago@deusto.es"
 ]
 
 # Función para crear un token JWT
